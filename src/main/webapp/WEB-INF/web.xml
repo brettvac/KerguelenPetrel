@@ -5,9 +5,18 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
    version="2.5">
    
+   <servlet>
+    <servlet-name>KerguelenpetrelServlet</servlet-name>
+    <servlet-class>io.github.brettvac.kerguelenpetrel.KerguelenpetrelServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KerguelenpetrelServlet</servlet-name>
+    <url-pattern>/KerguelenpetrelServlet</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>UpdateStatusServlet</servlet-name>
-    <servlet-class>kerguelenpetrel.UpdateStatusServlet</servlet-class>
+    <servlet-class>io.github.brettvac.kerguelenpetrel.UpdateStatusServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdateStatusServlet</servlet-name>
@@ -16,7 +25,7 @@
   
   <servlet>
     <servlet-name>BotherSomeoneServlet</servlet-name>
-    <servlet-class>kerguelenpetrel.BotherSomeoneServlet</servlet-class>
+    <servlet-class>io.github.brettvac.kerguelenpetrel.BotherSomeoneServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>BotherSomeoneServlet</servlet-name>
@@ -25,7 +34,7 @@
   
   <servlet>
     <servlet-name>RespondServlet</servlet-name>
-    <servlet-class>kerguelenpetrel.RespondServlet</servlet-class>
+    <servlet-class>io.github.brettvac.kerguelenpetrel.RespondServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RespondServlet</servlet-name>
@@ -34,21 +43,34 @@
   
   <servlet>
     <servlet-name>FriendSomeoneServlet</servlet-name>
-    <servlet-class>kerguelenpetrel.FriendSomeoneServlet</servlet-class>
+    <servlet-class>io.github.brettvac.kerguelenpetrel.FriendSomeoneServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FriendSomeoneServlet</servlet-name>
     <url-pattern>/cron/FriendSomeoneServlet</url-pattern>
   </servlet-mapping>
   
- <servlet>
+  <servlet>
     <servlet-name>UnfriendSomeoneServlet</servlet-name>
-    <servlet-class>kerguelenpetrel.UnfriendSomeoneServlet</servlet-class>
+    <servlet-class>io.github.brettvac.kerguelenpetrel.UnfriendSomeoneServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UnfriendSomeoneServlet</servlet-name>
     <url-pattern>/cron/UnfriendSomeoneServlet</url-pattern>
   </servlet-mapping>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>CronTasks</web-resource-name>
+      <url-pattern>/cron/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee> 
+    </user-data-constraint>
+    <auth-constraint>
+      <role-name>admin</role-name> 
+    </auth-constraint>
+  </security-constraint>
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

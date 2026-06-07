@@ -1,0 +1,35 @@
+cron:
+- description: "Post a status update or toot"
+  url: /cron/UpdateStatusServlet
+  schedule: every 20 minutes from 08:00 to 10:00
+  timezone: America/Chicago
+
+- description: "Post a status update or toot"
+  url: /cron/UpdateStatusServlet
+  schedule: every 4 minutes from 19:08 to 20:58
+  timezone: America/Chicago
+
+- description: "Check and respond to a mention"
+  url: /cron/RespondServlet
+  schedule: every 60 minutes from 09:00 to 14:00
+  timezone: America/Chicago
+
+- description: "Write something to a friend of a follower"
+  url: /cron/BotherSomeoneServlet
+  schedule: every 20 minutes from 10:22 to 18:22
+  timezone: America/Chicago
+
+- description: "Write something to a friend of a follower"
+  url: /cron/BotherSomeoneServlet
+  schedule: every 12 minutes from 20:11 to 21:43
+  timezone: America/Chicago
+
+- description: "Follow a new person"
+  url: /cron/FriendSomeoneServlet
+  schedule: every day 20:30
+  timezone: America/Chicago
+
+- description: "Unfollow a person"
+  url: /cron/UnfriendSomeoneServlet
+  schedule: every day 21:25
+  timezone: America/Chicago
