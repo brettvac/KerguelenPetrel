@@ -32,8 +32,8 @@ Additionnaly, I have restored the functionality to use Wordnik as the API still 
  2. Visit http://localhost:8080/ to test the Kerguelen Petrel functionality.
 4. Deploy Kerguelen Petrel to Google App Engine.
  1. Run `gcloud services enable cloudscheduler.googleapis.com pubsub.googleapis.com` 
-    3. Run `gcloud app create --region=us-central --project [YOUR_PROJECT_ID] replacing the placeholder with the Google App Engine project ID you noted earlie.
-    4. Deploy to GAE using `mvn package appengine:deploy`.
+ 2. Run `gcloud app create --region=us-central --project [YOUR_PROJECT_ID]` replacing the placeholder with the Google App Engine project ID you noted earlier.
+ 3. Deploy to GAE using `mvn package appengine:deploy`.
 
 ---
 
